@@ -34,7 +34,6 @@ delDatabase("db1.db");
 |  `close()`   |    關閉資料庫    |
 >要用的話就要db.xx
 ### 使用`execSQL()`方法執行SQL命令
->可以搭配ExSQLite01,,
 - `db.execSQL(str)` str : 要用SQL語法 
 -   ```java=
     "CREATE TABLE table01(_id INTEGER PRIMARY KEY,num INTEGER ,data TEXT)";
@@ -56,9 +55,9 @@ delDatabase("db1.db");
     "DROP TABLE table01";
     ```
     >刪除table01資料表
-:::warning
+
 在`onDestroy()`裡需要先刪除原本的資料表`DROP TABLE table01`，然後在關閉資料庫`db.close`，才能在每次開啟資料庫時才是空的
-:::
+
 ### 資料查詢rawQuery()、query()
 - `rawQuery()`會以`Cursor`類別回傳資料查詢的結果
 	-   ```java=
@@ -101,8 +100,8 @@ delDatabase("db1.db");
 		//查詢table01中依_id由大到小的前3筆資料，並傳回num和data兩欄位的資料
 		db.query("table01", null, null, null, null, null, "_id desc", "3");
 		```
-:::info
-cursor就是從資料庫中取出的資料，以下為cursor常用的用法
+
+**cursor就是從資料庫中取出的資料，以下為cursor常用的用法**
 
 |      方法      |              用途               |
 |:--------------:|:-------------------------------:|
@@ -122,7 +121,7 @@ cursor就是從資料庫中取出的資料，以下為cursor常用的用法
 |     getInt     | 取得指定索引的Integer類別的資料 |
 |   getString    | 取得指定索引的String類別的資料  |
 
-:::	
+
 ### 資料新增insert()
 ```java=
 ContentValues cv = new ContentValues(); //建立ContentValues物件
@@ -157,12 +156,11 @@ db.update("table01", cv, "_id=1", null);
 String str = "UPDATE table01 SET num=135, data='南瓜' WHERE _id=1";
 db.execSQL(str);
 ```
-:::info
-SQL語法中，字串型別須加上引號，而數值則不用加上引號
+
+**SQL語法中，字串型別須加上引號，而數值則不用加上引號**
 `'南瓜'` `135`
-:::
+
 ## 以ListView顯示SQLite資料
->搭配ExSQLite02
 ### SimpleCursorAdapter
 >SimpleCursorAdapter是用來當作顯示介面元件和Cursor資料的橋樑
 >像是可以用在ListView和Spinner
@@ -196,9 +194,12 @@ listview01.setAdapter(adapter);
 - 輸入ID並按下**查詢**可以查詢對應的_id
 - 按下**查詢全部**則會顯示全部
 - 若資料不存在則顯示查無此資料
-:::warning
+
 **合併資料欄位**
 
 `_id || '.' || name pname`就會變成(_id).(name)
 不過在下面Adapter呼叫的時候就要用`pname`
 :::
+
+## DEMO
+![image](https://github.com/doudou030/Android_SQLite/assets/95849271/5a1dbdba-6c61-4f65-8195-01d49c77dc5f)
