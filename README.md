@@ -1,5 +1,6 @@
 # Android_SQLite
 >在Android_studio使用SQLite並且以Listview顯示出來
+
 >文字說明與程式碼皆取自於Android 初學特訓班，第九版
 
 ## 認識SQLite資料庫
