@@ -197,7 +197,7 @@ listview01.setAdapter(adapter);
 
 **合併資料欄位**
 
-`_id || '.' || name pname`就會變成(_id).(name)
+`_id || '.' || name pname`就會變成((_id).(name))
 不過在下面Adapter呼叫的時候就要用`pname`
 :::
 
