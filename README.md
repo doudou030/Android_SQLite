@@ -1,2 +1,2 @@
-# Android_SQLite_TP
+# Android_SQLite
 在Android_studio使用SQLite並且以Listview顯示出來
